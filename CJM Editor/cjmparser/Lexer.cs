@@ -1,4 +1,4 @@
-﻿namespace CJM_Editor.cjmparser {
+﻿namespace CjmEditor.CjmParser {
     /// <summary>
     /// 
     /// </summary>
@@ -14,7 +14,7 @@
         /// <param name="script">The script.</param>
         protected Lexer(string script) {
             this.script=script;
-            c=script=="" ? EOF : script[0];
+            c=string.IsNullOrEmpty(script) ? EOF : script[0];
         }
 
         /// <summary>
@@ -22,7 +22,7 @@
         /// </summary>
         protected void Consume() {
             p++;
-            c=p>script.Length ? EOF : script[p];
+            c=p>=script.Length ? EOF : script[p];
         }
 
         public abstract Token GetNextToken();

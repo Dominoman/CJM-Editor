@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CJM_Editor.Properties
+namespace CjmEditor.Properties
 {
 
 

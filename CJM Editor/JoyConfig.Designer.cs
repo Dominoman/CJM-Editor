@@ -1,4 +1,4 @@
-﻿namespace CJM_Editor {
+﻿namespace CjmEditor {
     partial class JoyConfig {
         /// <summary>
         /// Required designer variable.
@@ -389,7 +389,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "JoyConfig";
             this.Text = "JoyConfig";
-            this.Load += new System.EventHandler(this.JoyConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

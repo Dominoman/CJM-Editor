@@ -1,26 +1,26 @@
 ﻿using System;
 using System.Text;
 
-namespace CJM_Editor.cjmparser {
+namespace CjmEditor.CjmParser {
     /// <summary>
     /// 
     /// </summary>
-    /// <seealso cref="CJM_Editor.cjmparser.Lexer" />
-    class CJMLexer:Lexer {
+    /// <seealso cref="CjmEditor.CjmParser.Lexer" />
+    class CjmLexer:Lexer {
         [Flags]
-        private enum Ct { None=0, Whitespace=1,Digit=2,Alpha=4}
+        private enum Ct { None=0, Whitespace=1,Alpha=4}
         private readonly Ct[] ctype = new Ct[256];
         private Ct Ctype => 0<=c&&c<=ctype.Length ? ctype[c] : Ct.Alpha;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CJMLexer"/> class.
+        /// Initializes a new instance of the <see cref="CjmLexer"/> class.
         /// </summary>
         /// <param name="script">The script.</param>
-        public CJMLexer(string script) : base(script) {
+        public CjmLexer(string script) : base(script) {
             AddWhiteSpaces(0,' ');
             AddAlphas('a','z');
             AddAlphas('A','Z');
-            AddDigits();
+            AddAlphas('0','9');
         }
 
         /// <summary>
@@ -46,15 +46,6 @@ namespace CJM_Editor.cjmparser {
         }
 
         /// <summary>
-        /// Adds the digits.
-        /// </summary>
-        private void AddDigits() {
-            for(var i = '0';i<='9';i++) {
-                ctype[i]|=Ct.Digit;
-            }
-        }
-
-        /// <summary>
         /// Gets the next token.
         /// </summary>
         /// <returns></returns>
@@ -65,7 +56,6 @@ namespace CJM_Editor.cjmparser {
                     return new Token(Token.EOL);
                 }
                 if(Ctype.HasFlag(Ct.Whitespace)) SkipWhiteSpace();
-                if(Ctype.HasFlag(Ct.Digit)) return GetNumber();
                 if(Ctype.HasFlag(Ct.Alpha)) return GetText();
                 var tmp = c;
                 Consume();
@@ -86,19 +76,6 @@ namespace CJM_Editor.cjmparser {
         /// </summary>
         private void SkipWhiteSpace() {
             while(Ctype.HasFlag(Ct.Whitespace)) Consume();
-        }
-
-        /// <summary>
-        /// Gets the number.
-        /// </summary>
-        /// <returns></returns>
-        private Token GetNumber() {
-            var sb = new StringBuilder();
-            while(Ctype.HasFlag(Ct.Digit)) {
-                sb.Append(c);
-                Consume();
-            }
-            return new Token(Token.NUMBER,int.Parse(sb.ToString()));
         }
 
         /// <summary>

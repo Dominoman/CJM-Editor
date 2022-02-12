@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace CJM_Editor.cjmparser {
+namespace CjmEditor.CjmParser {
     /// <summary>
     /// 
     /// </summary>
@@ -64,8 +64,8 @@ namespace CJM_Editor.cjmparser {
         /// <param name="i">The i.</param>
         /// <exception cref="System.Exception">Token mismatch! Expected:{Token.ToString(i)}, found:{LT(1)}</exception>
         protected void Match(int i) {
-            if(LA(1)==i) Consume();
-            throw new Exception($"Token mismatch! Expected:{Token.ToString(i)}, found:{LT(1)}");
+            if(LA(1)!=i) throw new Exception($"Token mismatch! Expected:{Token.ToString(i)}, found:{LT(1)}");
+            Consume();        
         }
     }
 }

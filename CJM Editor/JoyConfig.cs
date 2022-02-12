@@ -1,14 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CJM_Editor {
+namespace CjmEditor {
     public partial class JoyConfig:Form {
         private const int CONTROLCOUNT = 15;
         private Dictionary<string,string> dictionary = new Dictionary<string,string>{
@@ -90,10 +85,6 @@ namespace CJM_Editor {
                 var control = (ComboBox)Controls["j"+i];
                 control.Items.AddRange(items);
             }
-        }
-
-        private void JoyConfig_Load(object sender,EventArgs e) {
-
         }
     }
 }

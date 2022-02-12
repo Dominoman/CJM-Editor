@@ -22,6 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -46,9 +48,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cjmparser\CJMLexer.cs" />
-    <Compile Include="cjmparser\CJMLine.cs" />
-    <Compile Include="cjmparser\CJMParser.cs" />
+    <Compile Include="cjmparser\CjmLexer.cs" />
+    <Compile Include="cjmparser\CjmLine.cs" />
+    <Compile Include="cjmparser\CjmParser.cs" />
     <Compile Include="cjmparser\Lexer.cs" />
     <Compile Include="cjmparser\Parser.cs" />
     <Compile Include="cjmparser\Token.cs" />

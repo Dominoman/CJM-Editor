@@ -1,4 +1,4 @@
-﻿namespace CJM_Editor
+﻿namespace CjmEditor
 {
     partial class MainForm
     {
@@ -30,6 +30,7 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -89,6 +90,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
@@ -98,39 +100,47 @@
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
             this.fileToolStripMenuItem.Text = "&File";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.NewToolStripMenuItem_Click);
+            // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.openToolStripMenuItem.Text = "&Open...";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.OpenToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.saveToolStripMenuItem.Text = "&Save";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.SaveToolStripMenuItem_Click);
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.saveAsToolStripMenuItem.Text = "S&ave as...";
-            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
+            this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.SaveAsToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(177, 6);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(152, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             this.exitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             // 
             // groupBox1
@@ -153,7 +163,7 @@
             this.modelvic20.TabIndex = 1;
             this.modelvic20.Text = "VIC20";
             this.modelvic20.UseVisualStyleBackColor = true;
-            this.modelvic20.CheckedChanged += new System.EventHandler(this.model_CheckedChanged);
+            this.modelvic20.CheckedChanged += new System.EventHandler(this.Model_CheckedChanged);
             // 
             // modelc64
             // 
@@ -166,7 +176,7 @@
             this.modelc64.TabStop = true;
             this.modelc64.Text = "C64";
             this.modelc64.UseVisualStyleBackColor = true;
-            this.modelc64.CheckedChanged += new System.EventHandler(this.model_CheckedChanged);
+            this.modelc64.CheckedChanged += new System.EventHandler(this.Model_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -188,7 +198,7 @@
             this.ntsc.TabIndex = 1;
             this.ntsc.Text = "NTSC";
             this.ntsc.UseVisualStyleBackColor = true;
-            this.ntsc.CheckedChanged += new System.EventHandler(this.model_CheckedChanged);
+            this.ntsc.CheckedChanged += new System.EventHandler(this.Model_CheckedChanged);
             // 
             // pal
             // 
@@ -201,7 +211,7 @@
             this.pal.TabStop = true;
             this.pal.Text = "PAL";
             this.pal.UseVisualStyleBackColor = true;
-            this.pal.CheckedChanged += new System.EventHandler(this.model_CheckedChanged);
+            this.pal.CheckedChanged += new System.EventHandler(this.Model_CheckedChanged);
             // 
             // groupBox3
             // 
@@ -251,7 +261,7 @@
             this.bank5.TabIndex = 5;
             this.bank5.Text = "bank 5";
             this.bank5.UseVisualStyleBackColor = true;
-            this.bank5.CheckedChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.bank5.CheckedChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // bank3
             // 
@@ -262,7 +272,7 @@
             this.bank3.TabIndex = 4;
             this.bank3.Text = "bank 3";
             this.bank3.UseVisualStyleBackColor = true;
-            this.bank3.CheckedChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.bank3.CheckedChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // bank2
             // 
@@ -273,7 +283,7 @@
             this.bank2.TabIndex = 3;
             this.bank2.Text = "bank 2";
             this.bank2.UseVisualStyleBackColor = true;
-            this.bank2.CheckedChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.bank2.CheckedChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // bank1
             // 
@@ -284,7 +294,7 @@
             this.bank1.TabIndex = 2;
             this.bank1.Text = "bank 1";
             this.bank1.UseVisualStyleBackColor = true;
-            this.bank1.CheckedChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.bank1.CheckedChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // bank0
             // 
@@ -295,7 +305,7 @@
             this.bank0.TabIndex = 1;
             this.bank0.Text = "bank 0";
             this.bank0.UseVisualStyleBackColor = true;
-            this.bank0.CheckedChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.bank0.CheckedChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // vic20memory
             // 
@@ -314,7 +324,7 @@
             this.vic20memory.Name = "vic20memory";
             this.vic20memory.Size = new System.Drawing.Size(81, 21);
             this.vic20memory.TabIndex = 0;
-            this.vic20memory.SelectedValueChanged += new System.EventHandler(this.bank_CheckedChanged);
+            this.vic20memory.SelectedValueChanged += new System.EventHandler(this.Bank_CheckedChanged);
             // 
             // groupBox5
             // 
@@ -349,7 +359,7 @@
             this.fullheight.TabIndex = 3;
             this.fullheight.Text = "Full height";
             this.fullheight.UseVisualStyleBackColor = true;
-            this.fullheight.CheckedChanged += new System.EventHandler(this.fullheight_CheckedChanged);
+            this.fullheight.CheckedChanged += new System.EventHandler(this.Fullheight_CheckedChanged);
             // 
             // accuratedisk
             // 
@@ -406,7 +416,7 @@
             this.joy1.TabIndex = 9;
             this.joy1.Text = "Joy 1...";
             this.joy1.UseVisualStyleBackColor = true;
-            this.joy1.Click += new System.EventHandler(this.joy_Click);
+            this.joy1.Click += new System.EventHandler(this.Joy_Click);
             // 
             // joy2
             // 
@@ -417,7 +427,7 @@
             this.joy2.TabIndex = 10;
             this.joy2.Text = "Joy 2...";
             this.joy2.UseVisualStyleBackColor = true;
-            this.joy2.Click += new System.EventHandler(this.joy_Click);
+            this.joy2.Click += new System.EventHandler(this.Joy_Click);
             // 
             // joy3
             // 
@@ -428,7 +438,7 @@
             this.joy3.TabIndex = 11;
             this.joy3.Text = "Joy 3...";
             this.joy3.UseVisualStyleBackColor = true;
-            this.joy3.Click += new System.EventHandler(this.joy_Click);
+            this.joy3.Click += new System.EventHandler(this.Joy_Click);
             // 
             // joy4
             // 
@@ -439,7 +449,7 @@
             this.joy4.TabIndex = 12;
             this.joy4.Text = "Joy 4...";
             this.joy4.UseVisualStyleBackColor = true;
-            this.joy4.Click += new System.EventHandler(this.joy_Click);
+            this.joy4.Click += new System.EventHandler(this.Joy_Click);
             // 
             // openFileDialog1
             // 
@@ -546,6 +556,7 @@
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel toolStatus;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
 
