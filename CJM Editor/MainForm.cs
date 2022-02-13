@@ -99,7 +99,7 @@ namespace CjmEditor {
                                     else if(controls[item] is RadioButton) (controls[item] as RadioButton).Checked=true;
                                     else throw new NotSupportedException();
                                 }else if(banks.Contains(item)) {
-                                    var control = Controls[item] as CheckBox;
+                                    var control = groupBox4.Controls[item] as CheckBox;
                                     control.Checked=true;
                                 }else if(ks.Contains(item)) {
                                     vic20memory.Text=item;
@@ -171,7 +171,7 @@ namespace CjmEditor {
                 }
                 if(modelvic20.Checked) {
                     foreach(var bank in banks) {
-                        var control = Controls[bank] as CheckBox;
+                        var control = groupBox4.Controls[bank] as CheckBox;                        
                         if(control.Checked) outarray.Add(bank);
                     }
                     if(vic20memory.Text!="") outarray.Add(vic20memory.Text);
